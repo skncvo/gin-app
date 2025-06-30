@@ -1,0 +1,17 @@
+# Go build
+*.exe
+*.out
+*.test
+
+# Dependency directories (for modules)
+vendor/
+
+# SQLite DB
+*.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Env
+.env
