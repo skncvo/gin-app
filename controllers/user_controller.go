@@ -11,9 +11,11 @@ import (
 // context ? engine
 // 호출할 때 매개변수 생략?
 // Create User (Post /users)
-func CreateUser(c *gin.Context) {
+func CreateUser(c *gin.Context) { //*gin.Context : HTTP 요청 1건에 대한 모든 정보
 	var user models.User
+	// c.ShouldBindJSON -> 요청 body 파싱
 	if err := c.ShouldBindJSON(&user); err != nil {
+		// c.JSON -> 응답 보내기
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid Input"})
 		return
 	}
@@ -36,6 +38,7 @@ func GetUsers(c *gin.Context) {
 // Read one (Get /users/:id)
 func GetUserByID(c *gin.Context) {
 	var user models.User
+	// URL 파라미터 추출
 	id := c.Param("id")
 
 	if err := config.DB.First(&user, id).Error; err != nil {

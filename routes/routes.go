@@ -12,6 +12,9 @@ func SetupRoutes(r *gin.Engine) {
 
 	userGroup := r.Group("/users")
 	{
+		// 매개변수 생략하는 이유
+		// 지금 바로 실행이 아니라 '등록'만 하는 것
+		// 즉 "참조"
 		userGroup.POST("/", controllers.CreateUser)
 		userGroup.GET("/", controllers.GetUsers)
 		userGroup.GET("/:id", controllers.GetUserByID)
