@@ -5,7 +5,10 @@ import (
 	"github.com/skncvo/gin-app/controllers"
 )
 
+// r := gin.Default()가 *Engine type이라서 매개변수를 *gin.Engin으로 받음
 func SetupRoutes(r *gin.Engine) {
+
+	// http GET 메서드에 '/'를 받으면 func()실행
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "gin server is running"})
 	})
